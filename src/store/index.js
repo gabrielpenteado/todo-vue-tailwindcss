@@ -12,7 +12,10 @@ export default createStore({
     mutations: {
         setTodos(state, payload) {
             state.todos = payload;
-        }
+        },
+        // setTodo(state, payload) {
+        //     state.todos
+        // }
     },
     actions: {
         getTodos({ commit }) {
@@ -20,5 +23,10 @@ export default createStore({
                 commit('setTodos', response.data)
             })
         },
+        updateTodo({ commit }, { id, title, completed }) {
+            axios.put(`todos/${id}`, {
+                title, completed
+            })
+        }
     }
 })

@@ -79,7 +79,8 @@ const updateTodo = async () => {
       title: title.value,
       completed: isCompleted.value,
     };
-    await axios.put(`todos/${props.todo.id}`, payload);
+    console.log(payload);
+    await store.dispatch("updateTodo", payload);
     await store.dispatch("getTodos");
   } catch (error) {
     console.log(error);
