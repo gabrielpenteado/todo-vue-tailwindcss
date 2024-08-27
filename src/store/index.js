@@ -14,7 +14,7 @@ export default createStore({
             state.todos = payload;
         },
         setTodo(state, payload) {
-            state.todos.unshift(payload)
+            state.todos.push(payload)
         },
         setModifiedTodo(state, payload) {
             const todo = state.todos.find(todo => todo.id == payload.id);
@@ -30,8 +30,8 @@ export default createStore({
                 commit('setTodos', response.data)
             })
         },
-        addTodo({ commit }, { data }) {
-            axios.post("todos", data).then(response => commit('setTodo', response.data))
+        addTodo({ commit }, payload) {
+            axios.post('todos', payload).then(response => commit('setTodo', response.data))
         },
         updateTodo({ commit }, { id, title, completed }) {
             axios.put(`todos/${id}`, {

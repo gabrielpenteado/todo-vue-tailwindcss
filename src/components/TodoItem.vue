@@ -6,8 +6,8 @@
       <div class="flex items-center justify-center mr-2">
         <button
           :class="{
-            'ml-3 h-4 w-4 text-gray-400': !isCompleted,
-            'ml-3 h-4 w-4 text-green-500': isCompleted,
+            ' h-4 w-4 text-gray-400': !isCompleted,
+            ' h-4 w-4 text-green-600': isCompleted,
           }"
           @click="onCheck"
         >
@@ -33,7 +33,7 @@
           type="text"
           v-model="title"
           @keyup.enter="updateTodo"
-          class="bg-gray-300 placeholder-gray-500 text-gray-700 font-light focus:outline-none block w-full appearance-none leading-normal mr-3"
+          class="bg-gray-300 placeholder-gray-500 ml-2 text-gray-700 font-light focus:outline-none block w-full appearance-none leading-normal mr-3"
         />
       </div>
 
@@ -63,7 +63,6 @@
 </template>
 
 <script setup>
-import axios from "axios";
 import { ref } from "vue";
 import { useStore } from "vuex";
 
@@ -79,10 +78,10 @@ const updateTodo = async () => {
       title: title.value,
       completed: isCompleted.value,
     };
-    console.log(payload);
+    // console.log(payload);
     await store.dispatch("updateTodo", payload);
     await store.dispatch("getTodos");
-    console.log(store.state.todos);
+    // console.log(store.state.todos);
   } catch (error) {
     console.log(error);
   }
