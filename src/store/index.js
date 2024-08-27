@@ -22,6 +22,11 @@ export default createStore({
                 todo.title = payload.title
                 todo.completed = payload.completed
             }
+        },
+        removeTodo(state, payload) {
+            state.todos = state.todos.filter(todo => todo.id !== payload.id);
+            // console.log(payload)
+            // console.log(state.todos)
         }
     },
     actions: {
@@ -37,6 +42,9 @@ export default createStore({
             axios.put(`todos/${id}`, {
                 title, completed
             }).then(response => commit('setModifiedTodo', response.data))
+        },
+        deleteTodo({ commit }, id) {
+            axios.delete(`todos/${id}`).then(response => commit('removeTodo', response.data))
         }
     }
 })

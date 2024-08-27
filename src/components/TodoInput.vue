@@ -29,7 +29,7 @@ const inputValue = ref("");
 const submitForm = async () => {
   //   console.log(inputValue.value);
   try {
-    if (inputValue.value) {
+    if (inputValue.value.trim()) {
       await store.dispatch("addTodo", {
         title: inputValue.value,
         completed: false,
