@@ -82,6 +82,7 @@ const updateTodo = async () => {
     console.log(payload);
     await store.dispatch("updateTodo", payload);
     await store.dispatch("getTodos");
+    console.log(store.state.todos);
   } catch (error) {
     console.log(error);
   }
