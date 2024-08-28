@@ -3,7 +3,7 @@
 </h1>
 
 <h2 align="center">
-    A simple Vue Todo App created with Vuex, TailwindCSS and JSON Web Server.
+    A Todo App created with Vue, Vuex, TailwindCSS and JSON Server.
 </h2>
 
 <div align="center">
@@ -11,6 +11,8 @@
 
   <img src="https://img.shields.io/static/v1?label=npm&message=v10.5.1&color=informational&style=flat-square" alt="npm version">
 </div>
+
+<br>
 
 <div align="center">
   <table>
